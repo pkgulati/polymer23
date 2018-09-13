@@ -1,0 +1,170 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta field="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <title>demo1</title>
+
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/app-layout/app-drawer/app-drawer.html">
+    <link rel="import" href="bower_components/app-layout/app-header-layout/app-header-layout.html">
+    <link rel="import" href="bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+    <link rel="import" href="bower_components/app-layout/app-header/app-header.html">
+    <link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
+    <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+
+    <custom-style>
+        <style is="custom-style" include="iron-flex iron-flex-alignment">
+            body {
+                margin: 0;
+                font-family: 'Roboto', 'Noto', sans-serif;
+                background-color: #eee;
+            }
+
+            #startDrawer {
+                --app-drawer-content-container: {
+                    box-shadow: 1px 0 2px 1px rgba(0, 0, 0, 0.18);
+                }
+            }
+
+            #endDrawer {
+                --app-drawer-content-container: {
+                    box-shadow: -1px 0 2px 1px rgba(0, 0, 0, 0.18);
+                }
+            }
+
+            app-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: #4285f4;
+                color: #fff;
+            }
+
+            app-header paper-icon-button {
+                --paper-icon-button-ink-color: white;
+            }
+
+            sample-content {
+                padding-top: 192px;
+            }
+
+            paper-input {
+                max-width: 600px;
+            }
+
+            .fields {
+                padding-left: 16px;
+            }
+
+            .fields>* {
+                @apply --flex;
+                margin-right: 16px;
+                min-width: 330px;
+                max-width: 550px;
+                -ms-flex: 1 1 300px;
+                -webkit-flex: 1;
+                flex: 1;
+                -webkit-flex-basis: 300px;
+                flex-basis: 300px;
+            }
+
+            .lpad {
+                padding-left: 16px;
+            }
+
+            .lmargin {
+                margin-left: 16px;
+            }
+
+            .ltmargin {
+                margin-left: 16px;
+                margin-top: 16px;
+            }
+
+            @media only screen and (max-width: 600px) {
+               
+                .fields>* {
+                    min-width: 300px;
+                    max-width: 655px;
+                    margin-right: 8px;
+                }
+                .fields {
+                    padding-left: 8px;
+                }
+            }
+        </style>
+    </custom-style>
+
+</head>
+
+<body>
+
+
+    <app-header-layout>
+        <app-header fixed slot="header">
+            <app-toolbar>
+                <paper-icon-button icon="menu"></paper-icon-button>
+                <div main-title></div>
+                <paper-icon-button icon="shopping-cart"></paper-icon-button>
+            </app-toolbar>
+        </app-header>
+
+        <div id="dimensions"></div>
+        <div class="ltmargin">first block</div>
+        <div class="layout horizontal fields wrap">
+            <paper-input label="field 1"></paper-input>
+            <paper-input label="field 2"></paper-input>
+            <paper-input label="field 3"></paper-input>
+            <paper-input label="field 4"></paper-input>
+            <paper-input label="field 5"></paper-input>
+            <div class="dummyflex"></div>
+            <div class="dummyflex"></div>
+            <div class="dummyflex"></div>
+        </div>
+        <div class="ltmargin">second block</div>
+        <div class="layout horizontal fields wrap">
+            <paper-input label="field 6"></paper-input>
+            <paper-input label="field 7"></paper-input>
+            <paper-input label="field 8"></paper-input>
+            <paper-input label="field 9"></paper-input>
+            <paper-input label="field 10"></paper-input>
+            <paper-input label="field 11"></paper-input>
+            <div class="dummyflex"></div>
+            <div class="dummyflex"></div>
+        </div>
+    </app-header-layout>
+
+    <script>
+        window.onresize = displayWindowSize;
+        window.onload = displayWindowSize;
+        function displayWindowSize() {
+            // your size calculation code here
+            myWidth = window.innerWidth;
+            myHeight = window.innerHeight;
+            document.getElementById("dimensions").innerHTML = myWidth + "x" + myHeight;
+        };
+    </script>
+</body>
+
+</html>
